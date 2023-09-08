@@ -35,7 +35,7 @@ defaults
 
 frontend http_front
         bind *:80
-        bind *:443 ssl crt /etc/ssl/www.adooz.tech/www.adooz.tech.pem
+        bind *:443 ssl crt /etc/letsencrypt/live/www.adooz.tech/fullchain.pem
 
         #Redirect if HTTPS is not used
         redirect scheme https code 301 if !{ ssl_fc }
