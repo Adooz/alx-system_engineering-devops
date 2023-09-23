@@ -14,7 +14,7 @@ frontend http_front
 backend http_back
         balance roundrobin
         server 163700-web-01 34.203.77.154:80 check
-        server 163700-web-02 107.23.101.77:80 check
+        server 163700-web-02 100.25.34.236:80 check
 ">> /etc/haproxy/haproxy.cfg
 
 # Enable HAProxy management
