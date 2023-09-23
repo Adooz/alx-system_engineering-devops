@@ -36,14 +36,15 @@ defaults
 
 frontend http_front
         bind *:80
-        bind *:443 ssl crt /etc/letsencrypt/live/www.adooz.tech/fullchain.pem
+                bind *:443 ssl crt /etc/ssl/certs/adooz_ssl.pem
 
-        #Redirect if HTTPS is not used
+        # Redirect if HTTPS is not used
+                # http-request add-header X-Forwarded-Proto https
         redirect scheme https code 301 if !{ ssl_fc }
 
-        default_backend http_back
+                default_backend http_back
 
 backend http_back
-        balance roundrobin
-        server 163700-web-01 34.203.77.154:80 check
-        server 163700-web-02 107.23.101.77:80 check
+                balance roundrobin
+                server 163700-web-01 54.237.117.160:80 check
+                server 163700-web-02 35.174.184.145:80 check
